@@ -1,0 +1,546 @@
+﻿                                              	JavaScript JQuery笔记
+----------------------------------------------------------------------------------------------------------------------
+【第一章】JavaScript基础
+ JavaScript组成：ECMAScript、DOM（文档对象模型）、BOM（浏览器对象模型）
+·基本结构
+  	<script type="text/javascript">
+		document.write("Hello world")
+  	</script>
+
+·引用方式
+  ·使用<script></script>标签
+  ·外部js文件
+     	<script src="test.js" language="javascript"></script>
+  ·直接在HTML标签中使用
+     	<input type="button" value="点我有反应？" onclick="javascript:alert('呦！不错！')"/>
+
+·变量
+    	先声明再赋值：
+    	同时声明同时赋值：
+    	不声明直接赋值：
+
+·数据类型
+   	undefined //变量没有初始值
+   	null      //空值，与undefined相等
+   	number    //整数 浮点型（小数）
+   	boolean   //布尔型
+   	string    //字符串
+
+·String对象
+  ·属性 
+	字符串对象.length
+  ·方法
+	charAt(index)  //返回在指定位置的字符
+	indexOf()      //查找字符在字符串中首次出现的位置(找到1，没找到-1)
+	substring(index1,index2)//返回位于指定索引index1和index2之间的字符串,包括index1的字符不包括index2的字符
+	split(str)     //将字符串分割为字符串数组
+  	typeof()       //提取变量类型
+	   typeof返回值：
+  	        undefined //变量被声明后，但未被赋值
+	        string    //用单引号或双引号来声明的字符串
+ 	       	boolean   //true和false
+		number    //整数或浮点
+		object    //JavaScript中的对象，数组和null
+
+·数组
+     1.创建数组
+		var 数组名=new Array(size); //new声明数组关键字 size表示数组可存放的元素总数
+     2.为数组元素赋值
+	直接声明赋值：
+		var a=new Array('a','b','c');
+        声明并分配空间再赋值：
+		var sz=new Array(3);
+		a[0]='a';
+		a[1]='b';
+		a[2]='c';
+    ·常用属性：
+		length  //设置或返回数组中元素的数目
+    ·常用方法：
+		join()  //数组字符通过分隔符进行分隔
+		sort()  //对数组排序
+		push()  //向数组尾部添加一个或多个元素，并返回新的长度
+
+·运算符
+		算数运算符：+  -  *  /  %  ++  --
+		赋值运算符：=
+		比较运算符：>  <  >=  <=  ==  !=
+		逻辑运算符：&&  ||  ！
+
+·输入/输出
+		alert("");       //提示框
+		prompt("","");   //输入框
+
+·函数
+		定义函数：
+			function 函数名(var1,var2,...){ 
+  	   	 	   //JS语句
+		  	  return 返回值;
+  			}
+	 	调用函数：
+			函数名();
+		常用系统函数：
+			parseInt()   //将字符串转换为整数
+			parseFloat() //将字符串转换为小数
+			isNaN()      //检查参数是否是非数字 返回类型boolean
+
+----------------------------------------------------------------------------------------------------------------------
+【第二章】JavaScript对象
+·Window对象（浏览器中打开的窗口）
+	常用属性：
+		history  //有关客户访问过的URL信息
+		location //跳转到指定的URL页面
+	     语法：对象名.属性名="属性值";
+	常用方法：
+                prompt()  //输入框
+		alert()   //提示框
+		confirm() //确定框
+		close()     //关闭当前浏览器窗口
+		setTimeout("a()",3000)  //在指定的毫秒后调用一次函数或表达式
+		setInterval("a()",3000) //在指定的毫秒后调用多次函数或表达式
+	    	open("弹出的Url","窗口名称","窗口特征")  //打开指定的浏览器窗口加载指定的URL页面
+		 窗口特征：  
+		   height、width   	 //窗口文档显示区的高度、宽度。以像素计。 
+                   left、top       	 //窗口文档显示区的 x、y 坐标。以像素计。 
+                   resieable=yes|no|1|0  //窗口是否可调节尺寸。默认是 yes。 
+                   status=yes|no|1|0     //是否添加状态栏。默认是 yes。 
+		   scrollbars=yes|no|1|0 //是否显示滚动条。默认是 yes。 
+                   titlebar=yes|no|1|0   //是否显示标题栏。默认是 yes。 
+ 		   location=yes|no|1|0   //是否显示地址字段。默认是 yes。 
+                   menubar=yes|no|1|0    //是否显示菜单栏。默认是 yes。
+                   toolbar=yes|no|1|0    //是否显示浏览器的工具栏。默认是 yes。 
+		   fullscreen=yes|no|1|0 //是否使用全屏模式显示浏览器。默认是no。
+	常用事件：
+                onload      //页面或图像加载完成
+		onmouseover //鼠标移到某元素之上
+	        onclick     //单击某个对象
+		onkeydown   //某个键盘按键被按下
+		cnchange    //域的内容被改变
+
+·history对象（用户访问过的URL信息）
+	常用属性：
+		length //返回浏览器历史列表中的URL数量 
+	常用方法：
+		back()    //加载history列表中的前一个URL页面
+		forward() //加载history列表中的下一个URL页面
+		go()      //加载history列表中的某个具体页面
+
+·location对象（当前的URL信息）
+	常用属性：
+		host     //返回主机名和当前URL的端口号
+		hostname //返回当前URL的主机名
+		href     //返回完整的URL
+	常用方法：
+		reload()       //重新加载当前文档(刷新)
+		replace("URL") //用新的文档替换当前文档
+
+·Document对象(从脚本中对HTML页面中的所有元素进行访问)
+	常用属性：
+		referrer  //返回载入当前文档的文档的URL
+		URL       //返回当前文档的URL 
+	常用方法：
+		getElementById()           //返回对拥有指定id的第一个对象的引用。（对象ID唯一）
+		getElementById().innerText //返回对拥有指定id标签内部文本信息 .innerHTML包含标签的文本信息
+		getElementsByName()        //返回带有指定名称的对象集合。（相同name属性）
+		getElementsByTagName()     //返回带有指定标签名的对象集合。（相同元素） 
+		write   //输出
+
+·复选框属性
+	checked属性值：
+		选中：true
+	      未选中：false
+
+·JavaScript内置对象
+  ·Math对象（用于执行的常用的数学任务，包含了若干个数字常量和函数）
+	常用方法
+		方法	     说明			        示例
+		cell()	 对数进行上舍入		Math.cell(25.5);返回26
+						Math.floor(-25.5);返回-25
+
+		floor()	 对数进行下舍入		Math.floor(25.5);返回25
+						Math.cell(-25.5);返回-26
+
+		round()	 把数四舍五入为最近的数	Math.cell(25.5);返回26
+						Math.cell(-25.5);返回-26
+
+		random() 返回0-1之间的随机数	Math.random();例如：0.6273608814137365
+						parseInt(Math.random()*100); //生成100个随机整数
+						parseInt(Math.random()*数量)+初始值; //带有初始值的随机数
+						parseInt(Math.random()*数量)*倍数; //生成随机倍数
+
+  ·Date对象（用于操作日期和时间）
+	语法：
+		var 日期对象=new Date(参数)
+		参数格式：MM DD,YYYY,hh:mm:ss（月 日,年,时:分:秒）
+	    示例：
+		var today=new Date(); //返回当前日期和时间
+		var tdate=nre Date("september 1,2013,14:58:12"); //自定义日期和时间
+	常用方法：
+		setFullYear() //从 Date 对象返回年份其值介于 四位数字 之间。 
+		getMonth()    //从 Date 对象返回月份其值介于 0 - 11 之间。  
+		getDate()     //从 Date 对象返回一个月中的某一天 其值介于(1 - 31)之间。
+		getDay()      //从 Date 对象返回一周中的某一天 其值介于(0 - 6)之间。 
+		getHours()    //返回 Date 对象的小时其值介于 0 - 23 之间。 
+		getMinutes()  //返回 Date 对象的分钟其值介于 0 - 59 之间。 
+		getSeconds()  //返回 Date 对象的秒数其值介于 0 - 59 之间。 
+		getTime()     //返回 1970 年 1 月 1 日至今的毫秒数。 
+
+ ·清除函数
+	语法：
+	 	clearTimeout()    //清除延时调用函数
+	 	clearInterval()   //清除循环调用函数
+	示例：
+		var qchs=setTimeout("shijian()",1000);
+		clearTimeout(qchs);
+
+----------------------------------------------------------------------------------------------------------------------
+【第三章】JQuery基础
+·导入jquery库
+	<script type="text/javascript" src="jquery-1.12.3.js"></script>
+
+·基本语法
+	基本框架：
+	    	$(document).ready(function(){
+                     //jQuery代码
+            	}); 
+	  简写版：
+	    	$(function(){});
+
+	语法：
+		$(selector).action();
+		工程函数 $()        //将DOM对象转换为JQuery对象
+		选择器   (selector) //获取需要操作的DOM元素
+		方法     .action()  //执行对元素的操作
+
+	常用方法：
+		$(selector).css("属性","属性值")   //为元素设置CSS样式
+		$("元素").addClass(class)   //为相同样式的元素添加指定的类样式(一次性添加多个类名用空格隔开)
+		$(selector).next().css("属性","属性值")  //为下一个元素添加样式
+
+·节点类型
+	元素节点：文档中所有元素	<h2></h2>
+	文本节点：元素节点内的文本内容	<p>哈哈哈</p>
+	属性节点：元素节点的子节点	<p title="提示">哈哈哈</p>
+
+·JS(DOM)对象转成JQuery对象
+   语法：
+	   $(DOM对象)
+   实例：
+	   var js=document.getElementById("xz");   //获取DOM对象
+           var $jq=$(js);   //将DOM对象转换为JQuery对象
+
+·JQuery对象转成JS(DOM)对象
+	方法一：JQuery对象是一个数组，可以通过[index]的方法，来得到相应的DOM对象。
+   实例：
+	   var $jq=$("#xz"); //获取JQuery对象
+	   var js=$jq[0];    //将JQuery对象转换为DOM对象
+	   <input type="checkbox" id="xz"/>  //检测这个checkbox是否被选中
+
+	方法二：JQuery本身提供，通过.get(index)方法得到相应的DOM对象
+   实例：
+	   var $jq=$("#xz");  //获取JQuery对象
+	   var js=$jq.get(0); //将JQuery对象转换为DOM对象（$jq.get()[0]也行）
+	  <input type="checkbox" id="xz"/>   //检测这个checkbox是否被选中
+
+----------------------------------------------------------------------------------------------------------------------
+【第四章】选择器
+·基本语法：
+	$("选择器").css("属性","属性值");
+
+·基本选择器
+	标签选择器（根据给定的元素名匹配所有元素）示例：$("h2")     //设置所有h2标签的样式
+	  类选择器（根据给定的类匹配元素）示例：$(".title") //设置所有class为title的样式
+	  ID选择器（根据给定的ID匹配一个元素）示例：$("#title") //设置所有ID为title的样式
+	并集选择器（将每一个选择器匹配到的元素合并后一起返回）示例：$("div,p,.title") //设置所有div,p和类名为title          的样式
+	交集选择器（匹配指定class或id的某元素或元素集合）示例：$("h2.title") //设置类名为title的h2样式
+	全局选择器（匹配所有元素）示例：$("*") //设置所有样式
+
+·层次选择器
+	后代选择器（在给定的祖先元素下匹配所有的后代元素）示例：$("p a") //设置p标签后边所有a标签的后代的样式
+	  子选择器（在给定的父元素下匹配所有的子元素）示例：$("p>a") //设置p标签后边的a标签的子样式
+	相邻选择器（匹配所有紧接在 prev 元素后的 next 元素）示例：$("a+p") //设置a标签后边近邻的p标签的样式
+	同辈选择器（匹配 prev 元素之后的所有 siblings 元素）示例：$("strong~a") //设置从strong开始后边同一级的a标签         样式
+
+·属性选择器
+	$("[name]")         //设置含有name属性的元素（匹配包含给定属性的元素）
+	$("[href='#']")     //设置href属性值为#的元素（匹配给定的属性是某个特定值的元素）
+	$("[href!='#']")    //设置href属性值不为#的元素（匹配所有不含有指定的属性，或者属性不等于特定值的元素）
+	$("[href^='en']")   //设置href属性以en的开头的元素（匹配给定的属性是以某些值开始的元素）
+	$("[href$='.jpg']") //设置href属性值以.jpg结尾的元素（匹配给定的属性是以某些值结尾的元素）
+	$("[href*='txt']")  //设置href属性值含txt的元素（匹配给定的属性是以包含某些值的元素）
+	$("li[id][titlt=新闻要点]") //设置含有ID属性和title属性为新闻要点的<li>元素（复合属性选择器，同时满足多个条        件时使用）
+
+·过滤选择器
+	:first      //只设置第一个元素的样式
+	:last       //只设置最后一个元素的样式
+	:odd        //设置奇数（2,4,6...）的元素的样式(index从0开始)
+	:even  	    //设置偶数（1,3,5...）的元素的样式(index从0开始)
+	:gt(index)  //设置所有大于index的元素(index从0开始)
+	:lt(index)  //设置所有小于index的元素(index从0开始)
+	:eq(index)  //设置等于index的元素(index从0开始)
+	:not(选择器)//去除所有与选择器匹配的元素
+	:header     //匹配标题标签元素(h1-h6)
+	:focus      //匹配当前获取焦点的元素
+	:visible    //匹配所有可见的元素
+	:hidden     //匹配所有隐藏的元素
+
+·显示/隐藏
+	$("p:hidden").show();  //获取隐藏的p标签使其显示
+	$("p:visible").hide(); //获取显示的p标签使其隐藏
+	$("ul").toggle();      //可见元素切换为隐藏,隐藏元素切换为可见。
+
+----------------------------------------------------------------------------------------------------------------------
+【第五章】事件和动画
+·鼠标事件
+	$().click(function)     //鼠标点击事件
+	$().dblclick(function)  //鼠标双击事件
+	$().mouseover(function) //鼠标悬停事件
+	$().mouseout(function)  //鼠标离开事件
+
+·键盘事件
+	$().keydown(function)   //当键盘被按下时执行事件
+	$().keyup(function)     //当键盘被松开时执行事件
+	$().keypress(function)  //当内容被修改时执行事件
+	$().event.keyCode(function(event){})  //返回键盘按下指定键位的键值
+
+·表单事件
+	$().focus(function)     //被选元素获取焦点事件
+	$().blur(function)      //被选元素失去焦点事件
+
+·绑定事件
+	$().bind("事件类型","处理函数")   //绑定单个事件
+	$().bind({"事件类型":function(){},"事件类型":function(){}})  //绑定多个事件(逗号隔开)
+	$().unbind("事件类型","处理函数") //取消绑定事件
+
+·复合事件
+	$().hover(function(){},function(){}) //鼠标光标悬停事件
+	$().toggle(    //鼠标连击事件
+		function(){}, //第一次点击触发
+		function(){}, //第二次点击触发
+		function(){}  //第三次点击触发
+	);
+
+·动画效果
+	$().hide("1000"); 	//隐藏元素
+	$().show("1000"); 	//显示元素
+	$().slideUp("1000");    //通过高度变化向上减小来动态显示元素
+	$().slideDown("1000");  //通过高度变化向下增大来动态显示元素
+	$().fadeIn("1000");     //实现元素的淡入效果
+	$().fadeOut("1000");    //实现元素的淡出效果
+	$().fadeToggle("1000"); //淡入淡出效果的切换
+
+·轮播效果：
+	superslide中的slide方法：
+        	$(".banner-box").slide({
+		titCell:".hd ul",  //导航元素
+		mainCell:".bd ul", //切换元素div层
+            	effect:"fold",     //设置切换动画（fold，topMarquee【往上无缝滚动】leftMarquee【往左无缝滚                         	动】left【左滚动】top【上滚动】）
+            	interTime:3500,    //设置每隔多少毫秒切换一次
+            	delayTime:500,     //设置切换时的动画持续的时间
+           	autoPlay:true,     //自动执行
+            	autoPage:true,     //自动分页
+            	trigger:"click",   //导航以什么方式执行切换，click，mouseover（鼠标悬浮）
+		opp:true,          //反向运行
+		});
+
+----------------------------------------------------------------------------------------------------------------------
+【第六章】jQuery操作DOM
+·DOM操作分类
+	DOM Core、HTML-DOM、CSS-DOM
+
+·CSS类样式
+	$().addClass("class")    //追加类样式(多个类名用空格隔开)
+	$().removeClass("class") //移除类样式
+	$().toggleClass("class") //切换类样式
+	$().css({"":"","":""})   //同时设置多个CSS样式（逗号隔开）
+
+·HTML
+	$().html(value) //设置或获取第一个匹配元素的HTML标签和文本内容
+	$().text(value) //设置或获取HTML文本内容
+	$().val(value) 	//设置或获取HTML元素value属性值
+
+·节点(标签)操作
+  ·创建节点
+     语法：
+	var $变量名=$("<标签>");
+
+     工厂函数$()用于获取或创建节点：
+	$(selector)：通过选择器获取节点
+	$(element)：把DOM节点转化成jQuery节点
+	$(html)：使用HTML字符串创建jQuery节点
+
+     示例：
+	var $cr=$("<a href='#'>西瓜</a>"); //创建节点
+        //插入节点
+	$("p").append($cr); //把B追加到A中
+	$cr.appendTo("p");  //把A追加到B中
+
+  ·元素内部插入节点
+	prepend()  	//内部元素前边插入内容
+	prependTo()	//内部元素前边插入内容
+	append()   	//内部元素后边插入内容
+	appendTo() 	//内部元素后边插入内容
+
+  ·元素外部插入节点
+	before()       	//外部标签之前插入内容
+	insertBefore() 	//外部标签之前插入内容
+	after()        	//外部标签之后插入内容
+	insertAfter()  	//外部标签之后插入内容
+
+  ·复制节点
+	clone()  //复制DOM元素并且保留副本
+
+  ·替换节点
+	replaceWith()         //将所有匹配的元素替换成指定的HTML或DOM元素
+	replaceAll(selector)  //用匹配的元素替换掉所有selector匹配到的元素
+
+  ·删除节点
+	remove()//删除整个节点
+	detach()//删除整个节点(保留绑定的事件和附加的数据)
+	empty() //删除节点内容
+
+  ·获取或设置节点属性
+	attr()       //设置或获取元素的属性值
+	removeAttr() //删除元素的属性值
+
+  ·循环遍历
+	each(function(i,e){});   //循环遍历输出
+	i   //下标
+	e   //当前元素
+
+  ·遍历子元素
+	children()   //获取某元素的子元素
+
+  ·遍历同辈元素
+	prev()     //获取近邻匹配元素的上一个元素
+	next()     //获取近邻匹配元素的下一个元素
+	siblings() //获取位于匹配元素前面和后面所有同辈元素
+
+  ·遍历前辈元素
+	parent()     //获取元素的父级元素
+	parents()    //元素元素的祖先元素
+
+  ·查找元素
+	find()       //查找所有与指定表达式匹配的元素
+
+  ·CSS-DOM操作
+	css() 	//设置或返回元素的样式
+	width() //设置或返回元素的宽度
+	height()//设置或返回元素的高度
+	offset()//返回以像素为单位的top和left坐标。(仅对可见元素有效)
+
+----------------------------------------------------------------------------------------------------------------------
+【第七章】表单校验
+·字符串验证
+	if(mall==""){   //检测Emall是否为空
+	     alert("Emall不能为空");
+	     return false;
+	}
+
+	if(pwd.length < 6){  //检测密码长度是否为6位
+	     alert("密码必须等于或大于6个字符");
+	     return false;
+	}
+
+·判断字符串是否有数字
+	for (var i = 0; i < xm.length; i++) {//循环输入姓名的长度
+		var zf=xm.substring(i, i + 1);//截取输入的内容
+		if (isNaN(zf)==false) {//判断当前字符是否为数字
+                    $(".tsxx").css("display", "none");
+                    $("#yzxm").css("display", "inline");
+                    return false;
+		}
+	}
+
+·定义正则表达式
+  ·普通方式
+	语法：
+	   var reg=/表达式/附加参数
+	示例：
+	   var reg=/white/;
+	   var reg=/white/g;
+
+  ·构造函数
+	语法：
+	   var reg=new RegExp("表达式","附加参数")
+	示例：
+	   var reg=new RegExp("white");
+	   var reg=new RegExp("white","g");i(不区分大小写)、g(有序检索)
+
+·RegExp对象
+	方法
+	  exec()  //检索字符中正则表达式的区配，返回找到的值，并确认其位置(未找到返回null)
+	  test()  //检索字符串中指定的值，返回true或false
+
+	属性
+	  global     //RegExp对象是否具有标志g
+	  ignoreCase //RegExp对象是否具有标志i
+	  multiline  //RegExp对象是否具有标志m
+
+·String对象
+	方法
+	  match()   //找到一个或多个正则表达式的匹配，返回找到的值
+	  search()  //检索与正则表达式相互匹配的值，返回找到的下标
+	  replace() //替换与正则表达式匹配的字符，返回修改的值
+	  split()   //把字符串分割为字符串数组，返回分割后的数组
+
+·表达式的模式
+  ·简单模式(只能表示具体的匹配)
+	   var reg=/^china$/;
+	   var reg=/abc/;
+
+  ·复合模式(可以使用通配符表达更为抽象规则的模式)
+	   var reg=/^\w+$/;
+	   var reg=/^[a-zA-Z0-9_]{6,16}$/;
+
+·表单验证事件和方法
+	事件：
+	   onfocus  //获取焦点事件
+	   onblur   //失去焦点事件
+
+	方法：
+	   focus()  //获取焦点
+	   blur()   //失去焦点
+	   select() //选取文本域内容
+
+·正则表达式符号
+	/.../   代表一个模式的开始和结束
+	^       匹配字符串的开始
+	$       匹配字符串的结束
+	\s      任何空白字符
+	\S      任何非空白字符
+	\d      匹配一个数字字符，等价于[0-9]
+	\d[1-6] 只能输入1-6的数字
+	\D      除数字之外任何字符，等价于[^0-9]
+	\w      匹配一个数字、下划线或字母字符，等价于[A-Za-z0-9]
+	\W      任何非单字字符，等价于[^a-zA-z0-9_]
+	.       除换行符以外的任意字符
+	{n}     匹配一项n次
+	{n,}    匹配一项n次，或者多次
+	{n,m}   匹配一项至少n次，但是不能超过m次
+	*       匹配一项0次或多次，等价于[{0,}]
+	+       匹配一项1次或多次，等价于[{1,}]
+	?       匹配一项0次或1次，也就是说一项是可选的，等价于[{0,1}]
+	[\u4e00-\u9fa5] 中文（一个字两字节）
+
+·常用正则表达式
+        /^([a-zA-Z0-9][a-zA-Z0-9-_.]{3,17}|[a-zA-Z0-9][a-zA-Z0-9-_.]{3,17})$/  字母、数字、下划线、点、减号组成只能以数字、字母开头或结尾，且长度为4-18位
+	/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/   验证邮箱格式
+
+·表单选择器
+	示例：
+          $("#myform :input") //选取表单中所有input、textarer、select和button元素
+
+	:input    //匹配所有input、textarer、select和button元素
+	:text     //匹配所有单行文本框
+	:password //匹配所有密码框
+	:radio    //匹配所有单选按钮
+	:checkbox //匹配所有复选框
+	:submit   //匹配所有提交按钮
+	:image    //匹配所有图像域
+	:reset    //匹配所有重置按钮
+	:button   //匹配所有按钮
+	:file     //匹配所有文件域
+	:hidden   //匹配所有不可见元素，或者type为hidden的元素
+
+----------------------------------------------------------------------------------------------------------------------
+				     	Copyright © 曹帅华 All Rights Reserved

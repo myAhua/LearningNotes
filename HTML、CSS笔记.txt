@@ -1,0 +1,503 @@
+﻿                                                   	HTML CSS笔记
+----------------------------------------------------------------------------------------------------------------------
+【第一章】Html基础
+·基本框架:
+ <html>              ---文档标签
+   <head>            ---头部标签
+      <title></title>---导航栏标题标签
+   </head>
+   <body>   ---主体标签
+  
+   </body>  
+ </html>
+
+·特殊符号标签:
+ 	&nbsp;    空格 
+ 	&lt;      小于号(“<”) 
+ 	&gt;      大于号(“>”)
+ 	&quot;    引号
+ 	&copy;    版权符号
+ 	<p></p>   段落标签
+ 	<hr/>     分割线标签 
+ 	<br/>     换行标签
+	<b></b>   加粗标签
+ 	<s></s>   删除线标签
+ 	<u></u>   下划线标签
+ 	<em></em>或<i></i>  字体斜体标签
+ 	<small></small>     字体缩小标签
+ 	<h1></h1>-<h6></h6> 标题标签 (h1最大，h6最小)
+
+·图像标签 <img/>
+ 	属性：
+      		src=""    图像的路径地址 （目录+文件名+格式）
+     		alt=""    图像加载错误时提示文字
+      		title=""  鼠标悬停图片上方提示文字
+      		width=""  图像宽度
+      		height="" 图像高度
+ 		<img src="../../图像.png">图像路径返回上一级
+
+·超链接标签 <a></a>
+	属性：
+   		href=" "    链接路径 （目录+文件名+格式） 
+   		name=" "    锚链接标记
+   		target="   "链接到那个窗口打开
+          		_self  ---自身页面跳转 (默认)    
+          		_blank ---新建页面跳转 
+   		<a href="#"> </a>    ---刷新自身页面
+
+锚链接创建步骤：
+	1、在乙位置做标记: <a name="名字">乙位置</a>
+	2、在甲位置跳转:
+  		1.本页面跳转 <a href="名字">甲位置</a>, 从本页的甲位置跳转到本页中标记的乙位置
+ 		2.跨页面跳转 <a href="b页面.html#名字">甲位置</a> （B页面.html + #标记名）, 从a页面的甲位置跳转到b本页中标记的乙位置
+
+----------------------------------------------------------------------------------------------------------------------
+【第二章】列表、表格与框架
+
+·无序列表 <ul></ul>
+ 	<ul> ---声明无序列表
+    		<li>橘子</li> ---声明无序列表项
+ 	</ul>
+	属性：
+ 		type="      " 
+		值：  "disc  "  实心圆（默认值）
+      		      "circle"  空心圆
+		      "square"  实体方心
+		      "none  "  无符号
+	内容编辑状态（适用于所有标签）
+		contentEditable="true"  可编辑
+                		"false" 不可编辑（默认）
+
+·有序列表 <ol></ol>
+ 	<ol>      ---声明有序列表   
+   		<li></li>--声明有序列表项
+ 	</ol>
+   属性：
+ 	type="   "
+	值：  " 1 "     数字（默认值）
+      	      "a/A"   小写/大写字母
+              "i/I"   小写/大写罗马数字
+start="   "  有序列表符号开始值（只能用数字，包含设置值）
+内容编辑状态（适用于所有标签）
+contentEditable="true"  可编辑
+                "false" 不可编辑（默认）
+
+·定义列表 <dl></dl>
+ <dl></dl>   ---声明定义列表
+ <dt></dt>   ---声明定义列表项
+ <dd></dd>   ---定义列表项内容
+内容编辑状态（适用于所有标签）
+contentEditable="true"  可编辑
+                "false" 不可编辑（默认）
+定义列表代码结构：
+<dl>
+    <dt>111</dt>
+        <dd>222</dd>
+    <dt>111</dt>
+        <dd>222</dd>
+</dl>
+
+·表格 <table></table>
+  <table>			  ---表格标签                   
+     <tr>			  ---行标签                      
+        <td>第1个单元格的内容</td>---单元格标签
+        <td>第2个单元格的内容</td>
+     </tr>
+  </table>
+属性:
+ border=" "                       ---表格边框（“0”无【默认】，“1”有）
+ width= " "                       ---表格宽度
+ height=" "                       ---表格高度
+ border-collapse:collapse;  ---合并表格边框
+表格或单元格水平对齐方式：
+ align="left"     左对齐  （默认）
+       "center"	  居中对齐
+       "right "   右对齐
+单元格垂直对齐方式：
+ valign="top"     顶端对齐
+        "middle"  居中对齐（默认）
+        "bottom"  底端对齐
+        "baseline"基线对齐
+表格背景颜色  <table style="background-color:red"></table>
+列样式      <col>   
+列组样式    <colgroup></colgroup> 
+      例：         
+          <colgroup style="background-color:#ff0000"> ---列样式
+            <col> ---第一列样式
+            <col> ---第二列样式
+          </colgroup>
+ 横是行，竖是列，跨列删身后，跨行删身下
+ rowspan="行数"  ---跨行 
+ colspan="列数"  ---跨列
+隔行换色CSS样式：
+	<style type="text/css">
+		tr:nth-child(2n){//(2n+1)表示从第一行开始，(2n)是从第二行开始进行换色
+			background-color:#ffff00;
+		}
+	</style>
+
+·内联框架 <iframe></iframe>
+属性：                
+                   src ="引用页面.html" 引用地址
+	           name=""              名字
+                   frameborder=""       框架边框      （“0”无边框 “1”有边框【默认】）
+                   scrolling=""         是否有滚动条  （“yes”有【默认】 “no”无  “auto”自动）
+		   noresize=""          禁止调整框架窗口大小 
+		   width=""             框架宽度
+                   height=""            框架高度
+ <a href="引用页面.html" target="标记名字" frameborder="0">显示文字</a>   ---框架超链接
+代码结构：
+ <a href="百度.html" target="clj">百度</a>
+ <iframe src="首页.html" name="clj" frameborder="0" scrolling="no" width="300" height="300">
+ </iframe>
+值：
+	target="_parent" //在父框架中打开
+
+· 集合框架 <frameset></frameset>
+ <frameset>
+     cols=""  框架集合列的数目和尺寸 （例: "20%,*"）
+     rows=""  框架集合行的数目和尺寸
+     <frame></frame> 框架标签
+ </frameset>
+
+----------------------------------------------------------------------------------------------------------------------
+【第三章】表单
+
+·表单<form></form>
+ 属性： 
+    method=""                      表单提交方式 （路径+页面+格式）
+    action=""                      表单提交到的页面
+ 属性取值范围：
+  method="  "       ---表单提交方式      
+常用值:  
+	get    ---地址栏提交方式（默认）
+        post   ---表单提交
+  action="xxx.html" 		---表单提交到的页面
+ enctype="multipart/form-data"  ---文件域编码属性
+ 
+表单元素标签 <input type="表单元素"/> 
+	表单元素:
+                "text"     文本框
+                "password" 密码框
+     		"submit"   提交按钮
+    	 	"reset"    重置按钮
+     		"radio"    单选按钮 (注:名字相同为一组，一组只能选择一个)
+     		"checkbox" 多选按钮
+     		"file"     文件域  （配合form表单中的enctype文件域编码属性使用）
+     		"image"    图片提交按钮
+     		"button"   普通按钮
+     		"hidden"   隐藏域
+
+表单元素类型标签属性:
+        	name="name"                    ---元素标示名字
+    		value=""                       ---元素初始值
+    		size="21"                      ---初始宽度 （默认“20”像素）
+    		maxlength="16" 		       ---输入的最大字符数
+    		checked="checked"              ---按钮默认被选中 （注：也适用于多选按钮）
+    		autofocus="autofocus"          ---让元素在页面打开时自动获取焦点
+    		placeholder="请输入账号"       ---对用户输入进行提示
+    		readonly="readonly"            ---只读
+    		disabled="disabled"            ---禁用
+
+·点击内容按钮或文本框被选中：
+ <input type="text" id="bj">  ---标记
+ <label for="bj"></label>---点击内容按钮被选中(id不能重复)
+   好处：1.增强鼠标可用性。
+         2.自动将焦点转移到与该标注相关的表单元素上。        
+
+·多行文本域 <textarea></textarea>
+  <textarea>文本域内容</textarea> 
+属性：
+     name=""   ---标识名字
+     cols=""   ---列数
+     rows=""   ---行数
+     value=""  ---初始值
+
+·下拉列表框  <select></select>
+属性：
+    name=" "             ---列表框标识名称
+    size=" "             ---显示的行数   （默认“1”行）
+    <option></option>    ---选项
+    selected="selected"  ---列表框默认选择项
+	代码结构：
+	<select name="列表框名称" size="2">
+      		<option value="选项的值"> 显示内容 </option>
+      		<option value="选项的" selected="selected" >显示内容 </option>
+	</select>
+
+·文件域代码结构： 
+<form enctype="multipart/form-data">
+   <input type="file" name="" value=""/>
+</form>
+
+·域标签：
+ 	<fieldset>            ---域标签
+     		<legend></legend> ---域标题标签
+ 	</fieldset>
+
+----------------------------------------------------------------------------------------------------------------------
+【第四章】初始CSS（CSS:层叠样式表）
+
+·CSS基本语法：
+ 选择器{
+	声明1；    ---声明=属性：值；
+	声明2；
+ }
+
+ 样式标签  <style type="text/css"> </style>
+(注：样式标签必须写在head标签内。)
+
+·CSS选择器（优先级）：
+ ID选择器 > 类选择器 > 标签选择器 
+标签选择器：
+   标签名{
+          声明1；
+          声明2；
+  }
+ <标签名> </标签名>
+类选择器：
+  .类名称{
+          声明1；
+          声明2；
+  }
+ <标签名 calss="类名称"> </标签名>
+ID选择器：
+  #ID名称{
+          声明1；
+          声明2；
+  }
+ <标签名 ID="ID名称">  </标签名>
+
+·HTML中引入CSS样式
+行内样式：
+	<p style="color:red"> </h1>
+内部样式：
+	<style type="text/css">
+		选择器{
+          		声明；（声明=属性:值;）
+  		}
+	</style>
+外部样式：
+   1、链接外部样式表（优先级选用）：
+		<link/>            ---外部链接标签
+		href="xxx.css"     ---文件路径
+		type="text/css"    ---文件类型
+		rel="stylesheet"   ---页面与文档被链接的关系
+             例:<link href="xxx.css" type="text/css" rel="stylesheet"/>
+   2、导入式：
+    		<style type="text/css">
+			@import "样式表文件名.css";
+		</style>
+ CSS样式优先级：行内样式>内部样式>外部样式（就近原则）
+
+·CSS复合选择器
+   后代选择器(空格隔开)：
+   p a{
+     color:red;
+     font-size:20px;
+ }
+ （注：外层的标签写在外面，内层的标签写在里面，在CSS选择器中通过嵌套的方式，之间用空格隔开，内层的标签单独实现效果）
+
+   交集选择器（连续写）：
+   p#id{
+     color:red;
+     font-size:20px;
+ }
+ （注：两个选择器直接构成，第一个必须是标签选择器，第二个必须是类选择器或ID选择器，选择器之间不能有空格必须连续写，即可实现各自元素范围的交集效果）
+   并集选择器（逗号隔开）：
+   a,#id{
+    color:red;
+    font-size:20px;
+ }
+  (注：多个选择器通过逗号连接，同时声明风格实现相同样式)
+
+----------------------------------------------------------------------------------------------------------------------
+【第五章】CSS美化网页元素
+
+ <span></span>  ---设置样式，突出显示文字。
+·字体样式：
+  font-family:"楷体";  ---设置字体类型
+  font-size:20px;      ---设置字体大小
+       单位:px ---像素
+            em ---当前一个字体的尺寸
+
+  font-style:italic;  ---设置字体风格
+      常用值:normal  ---正常
+             italic  ---斜体
+             oblique ---倾斜体
+  font-weight:bold;    ---设置字体粗细
+      常用值:normal ---正常
+             bold   ---粗的
+             bolder ---更粗的
+             lighter---细的
+             取值:100-900
+  font:italic bold 36px "宋体";  ---声明所有字体样式属性 (顺序：字体风格→字体粗细→字体大小→字体类型)
+
+·文本样式：
+  color:#06B;        ---设置文本颜色 （例:0066BB简写为：06B） 
+  text-align:right;  ---设置元素水平对齐方式
+      常用值:left   （左）
+             center （中）
+             right  （右）
+             justify（两端对齐）
+  text-indent:2em;   ---设置首行文本缩进
+         单位:em ---当前一个字体的尺寸
+              px ---像素
+
+  line-height:20px;  ---设置文本行高
+  text-decoration:underline; ---设置文本的装饰
+           常用值:none ---标准
+                  underline    ---下划线
+                  overline     ---上划线
+                  line-through ---删除线
+                  blink        ---闪烁
+
+  vertical-align:middle;     ---设置垂直对齐方式
+          常用值:top   （上）
+                 middle（中）
+                 bottom（下）
+
+·超链接伪类：
+  标签名:伪类名{
+                color:red;
+            }
+  伪类名：a:link    ---未单击访问时超链接样式
+          a:visited ---单击访问后超链接样式
+          a:hover   ---鼠标悬浮超链接上方样式
+          a:active  ---鼠标单击未释放的超链接样式
+  设置伪类的顺序: a:link > a:visited > a:hover > a:active
+          text-decoration:none; ---超链接去除下划线
+
+·设置鼠标形状：
+  标签名{
+          cursor:常用值; 
+      }
+ 常用值：default   ---默认光标
+         pointer   ---超链接的指针
+         wait      ---指示程序正在忙
+         help      ---指示可用的帮助
+         text      ---指示文本
+         crosshair ---鼠标呈现十字状
+
+·网页背景样式:
+    background-color:#ff0000;  ---背景颜色
+              常用值:transparent; ---背景透明值
+                     #FF00FF;     ---十六进制颜色代码
+            
+    background-image:url("图片路径"); ---背景图像
+    background-repeat:repeat;      ---背景重复方式
+     常用值:repeat    ---沿水平和垂直两个方向平铺
+            no-repeat ---不平铺，即只显示一次
+            repeat-x  ---只沿水平方向平铺
+            repeat-y  ---只沿垂直方向平铺
+
+    background-position:x% y%;     ---背景定位
+     常用值：Xpx  ---水平
+             Ypx  ---垂直
+             X% Y%  ---百分比表示背景的位置
+             X方向关键词（left、center、right）
+             Y方向关键词（top、middle、bottom）
+    background:#red url(../image/image.png) 205px 10px no-repeat;  ---设置背景
+     设置顺序:背景颜色 > 背景图像 > 背景定位 > 背景重复方式
+
+·列表样式：
+    list-style-type:none;   ---列表样式类型
+   常用值：none   ---无符号
+           disc   ---实心圆（默认）
+           circle ---空心圆
+           square ---实体正方形
+           decimal---数字
+
+    list-style-image:url(image.gif); ---列表样式图像
+    list-style-position:inside;      ---列表样式定位
+    常用值：inside   ---文本根据符号对齐
+            outside  ---文本不根据符号对齐
+
+    list-style:circle outside url(image/right.gif);   ---列表样式
+     顺序：类型 > 定位 > 图像 
+
+----------------------------------------------------------------------------------------------------------------------
+【第六章】盒子模型
+
+     <div>     ---盒子模型标签
+         网页内容…
+     </div>
+      div{
+           width:200px;	   height:280px;
+        }
+    盒子模型尺寸=外边距+边框+内边距+元素尺寸+内边距+边框+外边距
+·边框：
+     border-top-color:#f00;    ---上边框颜色
+     border-right-color:#f00;  ---右边框颜色
+     border-bottom-color:#f00; ---下边框颜色     
+     border-left-color:#f00;   ---左边框颜色
+     border-color:#f00;        ---四个边框为同一颜色
+     border-radius:5px;        ---圆角边框
+
+     border-color:#f00 #3f6;           ---上下边框的颜色为:#f00  左右边框的颜色为:#3f6
+     border-color:#f00 #0b0 #00f;      ---上边框的颜色为:#f00   左右边框的颜色为:#0b0   下边框的颜色为:#00f
+     border-color:#f00 #0f0 #00f #fff; ---分别是上、右、下、左边框的颜色 
+     border-width:10px;                ---边框粗细   常用值:thick(粗)、thin(细)、medium(不粗不细)、像素值
+     border-style:none;                ---边框样式   常用值:none（无）、dotted（点状）、dashed（虚线）、solid（实线）、double（双线）、hidden（无）
+     border:9px #F00 dashed;     ---边框  顺序:粗细、颜色、样式
+
+·外边距：
+    margin:10px;            ---外边距  (ps: margin:0px auto; ---网页居中对齐)
+    margin-top:10px;        ---上外边距
+    margin-right:10px;      ---右外边距
+    margin-bottom:10px;     ---下外边距
+    margin-left:10px;       ---左外边距
+·内边距：
+    padding:10px;            ---内边距
+    padding-top:10px;        ---上内边距
+    padding-right:10px;      ---右内边距
+    padding-bottom:10px;     ---下内边距
+    padding-left:10px;       ---左内边距
+
+·标准文档流：
+  标准文档流：简称标准流，是网页元素默认的排列方式
+  display:block      ---控制元素显示方式
+   常用值:block  ---块级元素
+          inline ---内联元素
+          none   ---隐藏
+
+----------------------------------------------------------------------------------------------------------------------
+【第七章】浮动
+
+    float:left;   ---元素浮动
+    常用值:left   ---左浮动
+           right  ---右浮动
+           none   ---不浮动（默认)
+
+     clear:left;  ---清除浮动 
+    常用值:left   ---左侧不允许浮动
+           right  ---右侧不允许浮动
+           both   ---两侧不允许浮动
+           none   ---允许浮动（默认)
+
+    overflow:visible; ---溢出处理   
+      常用值:visible  ---内容不会被修剪，会呈现在盒子之外
+             hidden   ---内容会被修剪，并且其余内容是不可见的
+             scroll   ---内容会被修剪，但是浏览器会显示滚动条以便查看其余内容
+             auto     ---如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容
+
+----------------------------------------------------------------------------------------------------------------------
+【第八章】定位网页元素
+
+    position:static;  ---网页元素定位
+      常用值:static   ---没有定位（默认）
+             relative ---相对定位
+             absolute ---绝对定位
+             fixed    ---固定定位
+   偏移设置:top（上）、right（右）、bottom（下）、left（左）
+
+    z-index:0;   ---调整元素定位时重叠层的上下位置
+     属性值:整数，默认值为“0”（数值大的层位于数值小的层上方）
+
+   opacity:x;     ---元素透明度
+    属性值:x值为0-1，值越小越透明
+   filter:alpha(opacity=x)  ---元素透明度
+    属性值:x值为0-100，值越小越透明
+
+----------------------------------------------------------------------------------------------------------------------
+				     	Copyright © 曹帅华 All Rights Reserved
