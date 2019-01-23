@@ -12,8 +12,10 @@
 - HTML5新特性笔记：http://note.youdao.com/noteshare?id=263a985c7ee73741f3f2b94b899bb517&sub=238F295E3CB4441DAD60F87F16D39CD8
 
 笔记下载步骤：
-    1.点击右上角 Clone or download
-    2.点击右下角 DownloadZIP
+
+    1、点击右上角 Clone or download
+    
+    2、点击右下角 DownloadZIP
 
 ## 可以关注（Watch）这个仓库内容更新会提醒你，内容持续更新......
 ## 总结不易，喜欢的点个Start ## 
