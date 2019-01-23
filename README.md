@@ -6,6 +6,6 @@ Oracle在线笔记：http://note.youdao.com/noteshare?id=f0fcbc241ca9b9cfc0df3dd
 
 HTML5新特性笔记：http://note.youdao.com/noteshare?id=263a985c7ee73741f3f2b94b899bb517&sub=238F295E3CB4441DAD60F87F16D39CD8
 
-持续更新中......
+## 持续更新中......
 
-喜欢的可以点个Start
+## 喜欢的可以点个Start
